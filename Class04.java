@@ -59,10 +59,22 @@ public class Class04 {
             System.out.println("Positive");
             System.out.println("Absolute value: " + a);
         }
+
+        if (a < 0) {
+            System.out.println("Negative");
+            a = a * -1;
+            System.out.println("Absolute value: " + a);
+        }
+        if (a >= 0) {
+            System.out.println("Positive");
+            System.out.println("Absolute value: " + a);
+        }
         System.out.println(" --- --- ");
 
         //zadanie 7
         System.out.println("--- Zadanie 7 ---");
+        int b = 4;
+         System.out.println( (! (a < b) && ! ( a > b) ) );
         System.out.println(" --- --- ");
 
         //zadanie 8
@@ -72,16 +84,36 @@ public class Class04 {
         int num2 = scanner.nextInt();
         if (num1 > 0 && num2 > 0)
             System.out.println(num1 - num2);
-        else if (num1 < 0 && num2 < 0)
+        else if (num1 <= 0 && num2 <= 0)
             System.out.println(num1 + num2);
         System.out.println(" --- --- ");
 
         //zadanie 9
         System.out.println("--- Zadanie 9 ---");
+        int year = scanner.nextInt();
+        int isdiv4 = year % 4;
+        int isdiv100 = year % 100;
+        int isdiv400 = year % 400;
+        if( (isdiv4 == 0 && isdiv100 != 0) || isdiv400 == 0)
+            System.out.println("Rok " + year + " jest rokiem przestępnym." );
+        else
+            System.out.println("Rok " + year + " nie jest rokiem przestępnym");
+
+
         System.out.println(" --- --- ");
 
         //zadanie 10
         System.out.println("--- Zadanie 10 ---");
+        char ch = scanner.next().charAt(0);
+        if (ch >= 65 && ch <= 90)
+            System.out.println(ch + " jest literą");
+        else if (ch >= 97 && ch <= 122)
+            System.out.println(ch + " jest literą");
+        else if (ch >= 48 && ch <= 57)
+            System.out.println(ch + " jest cyfrą");
+        else
+            System.out.println(ch + " jest innym znakiem");
+
         System.out.println(" --- --- ");
     }
 }

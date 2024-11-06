@@ -24,9 +24,9 @@ public class Class04 {
         //short a = 5, b = 6;
         //int c = a + b;
         //System.out.println(c);
-        /*aby program zadziałał zmienna c nie może być typu short, tylko int ponieważ na poziomie kompilowania
-        short musi zostać zamieniony na int, obliczenia na int wykonują się szybciej,
-         co więcej przechowują więcej informacji bitowych.*/
+        /* Aby program zadziałał zmienna c nie może być typu short, tylko int ponieważ wiele procesorów nie może
+        załadować mniej niż 4 bajty pamięci na raz - rozmiary zmiennych muszą być znane w czasie kompilacji,
+        a inty są często szybsze w użyciu niż shorty.*/
         System.out.println(" --- --- ");
 
         //zadanie 3
@@ -36,16 +36,21 @@ public class Class04 {
         //wynikiem zadania 3 będzie liczba 16, ponieważ zmienna x w momencie printowania jest nadpisywana.
         System.out.println(" --- --- ");
 
-        //zadanie 4
+       // zadanie 4
         System.out.println("--- Zadanie 4 ---");
-        System.out.println(Math.sqrt((2)^2) - 2);
+        if(Math.pow(Math.sqrt(2), 2) - 2  == 0) {
+            System.out.println("Sprawdziło się");
+        } else {
+            System.out.println("Nie sprawdziło się");
+            System.out.println(Math.pow(Math.sqrt(2), 2) - 2);
+        }
         System.out.println(" --- --- ");
 
         //zadanie 5
         System.out.println("--- Zadanie 5 ---");
         if (3 < 5 * 2.0)
             System.out.println("Hello");
-        System.out.println("World");
+            System.out.println("World");
         System.out.println(" --- --- ");
 
         //zadanie 6
@@ -73,8 +78,15 @@ public class Class04 {
 
         //zadanie 7
         System.out.println("--- Zadanie 7 ---");
-        int b = 4;
-         System.out.println( (! (a < b) && ! ( a > b) ) );
+        a = 1;
+        int b = 1;
+        boolean attempt1 = ( ! (a < b) && !( a > b ) );
+        boolean attempt2 = (  (a >= b) && ( a <= b ) );
+        boolean attempt3 = a == b;
+        System.out.println("attempt1:" + attempt1);
+        System.out.println("attempt2:" + attempt2);
+        System.out.println("attempt3:" + attempt3);
+
         System.out.println(" --- --- ");
 
         //zadanie 8
@@ -84,20 +96,24 @@ public class Class04 {
         int num2 = scanner.nextInt();
         if (num1 > 0 && num2 > 0)
             System.out.println(num1 - num2);
-        else if (num1 <= 0 && num2 <= 0)
+        else
             System.out.println(num1 + num2);
         System.out.println(" --- --- ");
 
         //zadanie 9
         System.out.println("--- Zadanie 9 ---");
         int year = scanner.nextInt();
-        int isdiv4 = year % 4;
-        int isdiv100 = year % 100;
-        int isdiv400 = year % 400;
-        if( (isdiv4 == 0 && isdiv100 != 0) || isdiv400 == 0)
-            System.out.println("Rok " + year + " jest rokiem przestępnym." );
-        else
-            System.out.println("Rok " + year + " nie jest rokiem przestępnym");
+        boolean isDivisibleBy4 = year % 4 == 0;
+        boolean isDivisibleBy100 = year % 100 == 0;
+        boolean isDivisibleBy400 = year % 400 == 0;
+        boolean isLeapYear = (isDivisibleBy4 && !isDivisibleBy100) || isDivisibleBy400;
+
+        String answer = "Rok " + year;
+        if(!isLeapYear) {
+            answer += " nie";
+        }
+        answer += " jest rokiem przestępnym.";
+        System.out.println(answer);
 
 
         System.out.println(" --- --- ");
@@ -106,9 +122,9 @@ public class Class04 {
         System.out.println("--- Zadanie 10 ---");
         char ch = scanner.next().charAt(0);
         if (ch >= 65 && ch <= 90)
-            System.out.println(ch + " jest literą");
+            System.out.println(ch + " jest dużą literą");
         else if (ch >= 97 && ch <= 122)
-            System.out.println(ch + " jest literą");
+            System.out.println(ch + " jest małą literą");
         else if (ch >= 48 && ch <= 57)
             System.out.println(ch + " jest cyfrą");
         else
@@ -117,3 +133,4 @@ public class Class04 {
         System.out.println(" --- --- ");
     }
 }
+

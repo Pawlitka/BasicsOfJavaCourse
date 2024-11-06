@@ -48,14 +48,15 @@ public class Class04 {
 
         //zadanie 5
         System.out.println("--- Zadanie 5 ---");
-        if (3 < 5 * 2.0)
+        if (3 < 5 * 2.0) {
             System.out.println("Hello");
             System.out.println("World");
+        }
         System.out.println(" --- --- ");
 
         //zadanie 6
         System.out.println("--- Zadanie 6 ---");
-        int a = 3;
+        int a = 5;
         if (a < 0){
             System.out.println("Negative");
             a = a * -1;
@@ -64,6 +65,9 @@ public class Class04 {
             System.out.println("Positive");
             System.out.println("Absolute value: " + a);
         }
+        //dla -3 : Negative, absolute val: 3
+        //Dla 0: Positive, absolute val: 0
+        //dla 5: Positive, absolute val: 5
 
         if (a < 0) {
             System.out.println("Negative");
@@ -74,6 +78,10 @@ public class Class04 {
             System.out.println("Positive");
             System.out.println("Absolute value: " + a);
         }
+        //dla -3: Positive, Absolute val: 3
+        //Dla 0: Positive, absolute val: 0
+        //dla 5: Positive, absolute val: 5
+
         System.out.println(" --- --- ");
 
         //zadanie 7
@@ -103,7 +111,11 @@ public class Class04 {
         //zadanie 9
         System.out.println("--- Zadanie 9 ---");
         int year = scanner.nextInt();
-        boolean isLeapYear = (isDivisible(year, 4) && isDivisible(year, 100)) || isDivisible(year, 400);
+        boolean isDivisibleBy4 = year % 4 == 0;
+        boolean isDivisibleBy100 = year % 100 == 0;
+        boolean isDivisibleBy400 = year % 400 == 0;
+        boolean isLeapYear = (isDivisibleBy4 && !isDivisibleBy100) || isDivisibleBy400;
+
         String answer = "Rok " + year;
         if(!isLeapYear) {
             answer += " nie";
@@ -127,10 +139,6 @@ public class Class04 {
             System.out.println(ch + " jest innym znakiem");
 
         System.out.println(" --- --- ");
-    }
-
-    private static boolean isDivisible(int number, int divider) {
-        return number % divider == 0;
     }
 }
 

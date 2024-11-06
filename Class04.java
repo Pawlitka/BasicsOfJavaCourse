@@ -103,11 +103,7 @@ public class Class04 {
         //zadanie 9
         System.out.println("--- Zadanie 9 ---");
         int year = scanner.nextInt();
-        boolean isDivisibleBy4 = year % 4 == 0;
-        boolean isDivisibleBy100 = year % 100 == 0;
-        boolean isDivisibleBy400 = year % 400 == 0;
-        boolean isLeapYear = (isDivisibleBy4 && !isDivisibleBy100) || isDivisibleBy400;
-
+        boolean isLeapYear = (isDivisible(year, 4) && isDivisible(year, 100)) || isDivisible(year, 400);
         String answer = "Rok " + year;
         if(!isLeapYear) {
             answer += " nie";
@@ -131,6 +127,10 @@ public class Class04 {
             System.out.println(ch + " jest innym znakiem");
 
         System.out.println(" --- --- ");
+    }
+
+    private static boolean isDivisible(int number, int divider) {
+        return number % divider == 0;
     }
 }
 
